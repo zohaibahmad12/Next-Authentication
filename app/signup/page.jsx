@@ -2,7 +2,7 @@ import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-const Register = () => {
+const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-300 w-full max-w-md">
@@ -73,4 +73,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Signup;
