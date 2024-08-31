@@ -53,7 +53,7 @@ const page = () => {
         </div>
         <form>
           <button
-            type="button"
+            type="submit"
             className="flex items-center justify-center w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-200 mb-4 border border-gray-300"
           >
             <FaGithub className="mr-2" />
@@ -62,7 +62,7 @@ const page = () => {
         </form>
         <form>
           <button
-            type="button"
+            type="submit"
             className="flex items-center justify-center w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-200 border border-gray-300"
           >
             <FaGoogle className="mr-2" />
