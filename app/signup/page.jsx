@@ -2,6 +2,7 @@ import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { signupUser } from "@/actions/user";
 const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -9,7 +10,7 @@ const Signup = () => {
         <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">
           Sign Up
         </h2>
-        <form>
+        <form action={signupUser}>
           <div className="mb-4">
             <Label
               htmlFor="name"
@@ -22,6 +23,7 @@ const Signup = () => {
               id="name"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
               placeholder="Enter your name"
+              name="name"
             />
           </div>
           <div className="mb-4">
@@ -36,6 +38,7 @@ const Signup = () => {
               id="email"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
               placeholder="Enter your email"
+              name="email"
             />
           </div>
           <div className="mb-6">
@@ -50,6 +53,7 @@ const Signup = () => {
               id="password"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
               placeholder="Enter your password"
+              name="password"
             />
           </div>
           <button

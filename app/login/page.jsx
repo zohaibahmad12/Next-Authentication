@@ -70,7 +70,7 @@ const page = () => {
           </button>
         </form>
         <p className="text-center text-gray-600 text-sm mt-6">
-          Don't have an account?{" "}
+          Dont have an account?{" "}
           <Link
             href="/signup"
             className="text-indigo-500 hover:text-indigo-700 font-semibold"
