@@ -25,3 +25,8 @@ export const loginUser = async (formData) => {
   });
   redirect("/");
 };
+
+export const githubLogin = async () => {
+  await signIn("github", { redirect: false });
+  redirect("/");
+};

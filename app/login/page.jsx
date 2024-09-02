@@ -4,6 +4,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { loginUser } from "@/actions/user";
+import { githubLogin } from "@/actions/user";
 const page = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -54,7 +55,7 @@ const page = () => {
           <span className="text-gray-500 px-2">or</span>
           <hr className="w-full border-gray-300" />
         </div>
-        <form>
+        <form action={githubLogin}>
           <button
             type="submit"
             className="flex items-center justify-center w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-200 mb-4 border border-gray-300"

@@ -3,15 +3,20 @@ import NextAuth from "next-auth";
 import connectDB from "./lib/db";
 import { User } from "./models/User";
 import Credentials from "next-auth/providers/credentials";
+import GitHub from "next-auth/providers/github";
 import { compare } from "bcryptjs";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    GitHub({
+      clientId: process.env.Github_Client_ID,
+      clientSecret: process.env.Github_Client_SECRET,
+    }),
+
     Credentials({
       credentials: {
         email: {},
         password: {},
       },
-
       authorize: async (credentials) => {
         let user = null;
         await connectDB();
