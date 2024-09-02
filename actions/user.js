@@ -3,6 +3,7 @@ import connectDB from "@/lib/db";
 import { User } from "@/models/User";
 import { redirect } from "next/navigation";
 import { hash } from "bcryptjs";
+import { signIn } from "@/auth";
 export const signupUser = async (formData) => {
   const name = formData.get("name");
   const email = formData.get("email");
@@ -11,4 +12,16 @@ export const signupUser = async (formData) => {
   await connectDB();
   await User.create({ name, email, password });
   redirect("/login");
+};
+
+export const loginUser = async (formData) => {
+  const email = formData.get("email");
+  let password = formData.get("password");
+  await signIn("credentials", {
+    redirect: false,
+    callbackUrl: "/",
+    email,
+    password,
+  });
+  redirect("/");
 };

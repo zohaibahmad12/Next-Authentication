@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { loginUser } from "@/actions/user";
 const page = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -10,7 +11,7 @@ const page = () => {
         <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">
           Login
         </h2>
-        <form>
+        <form action={loginUser}>
           <div className="mb-4">
             <Label
               htmlFor="email"
@@ -21,6 +22,7 @@ const page = () => {
             <Input
               type="email"
               id="email"
+              name="email"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
               placeholder="Enter your email"
             />
@@ -35,6 +37,7 @@ const page = () => {
             <Input
               type="password"
               id="password"
+              name="password"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
               placeholder="Enter your password"
             />

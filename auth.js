@@ -1,3 +1,4 @@
+// This whole code is followed by Auth.js documentation
 import NextAuth from "next-auth";
 import connectDB from "./lib/db";
 import { User } from "./models/User";
@@ -26,4 +27,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+
+  //for login auth it redirect to our own custom login page instead of next-auth built in page
+  pages: {
+    signIn: "/login",
+  },
 });
