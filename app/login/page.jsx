@@ -3,8 +3,7 @@ import { Label } from "@/components/ui/label";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { loginUser } from "@/actions/user";
-import { githubLogin } from "@/actions/user";
+import { googleLogin, githubLogin, loginUser } from "@/actions/user";
 const page = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -64,7 +63,7 @@ const page = () => {
             Login with GitHub
           </button>
         </form>
-        <form>
+        <form action={googleLogin}>
           <button
             type="submit"
             className="flex items-center justify-center w-full bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-200 border border-gray-300"

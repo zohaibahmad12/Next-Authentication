@@ -30,3 +30,8 @@ export const githubLogin = async () => {
   await signIn("github", { redirect: false });
   redirect("/");
 };
+
+export const googleLogin = async () => {
+  await signIn("google", { redirect: false });
+  redirect("/");
+};
