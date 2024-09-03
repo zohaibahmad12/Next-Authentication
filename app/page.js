@@ -1,3 +1,4 @@
+import { signoutUser } from "@/actions/user";
 import {
   Table,
   TableHeader,
@@ -5,6 +6,7 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
+
 const recentSignups = [
   { name: "John Doe", email: "john.doe@example.com" },
   { name: "Jane Smith", email: "jane.smith@example.com" },
@@ -16,7 +18,17 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="container mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <form action={signoutUser}>
+            <button
+              type="submit"
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            >
+              Logout
+            </button>
+          </form>
+        </div>
 
         {/* Recent Signups Table */}
         <div className="bg-white shadow-lg rounded-lg p-4">

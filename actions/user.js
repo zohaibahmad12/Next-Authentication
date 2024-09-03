@@ -3,7 +3,7 @@ import connectDB from "@/lib/db";
 import { User } from "@/models/User";
 import { redirect } from "next/navigation";
 import { hash } from "bcryptjs";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 export const signupUser = async (formData) => {
   const name = formData.get("name");
   const email = formData.get("email");
@@ -34,4 +34,8 @@ export const githubLogin = async () => {
 export const googleLogin = async () => {
   await signIn("google", { redirect: false });
   redirect("/");
+};
+
+export const signoutUser = async () => {
+  await signOut({ redirectTo: "/login" });
 };
