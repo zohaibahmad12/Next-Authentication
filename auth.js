@@ -43,4 +43,46 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/login",
   },
+
+  // Optional: We give it becasue we want a custom logic for our github and google signin
+  callbacks: {
+    signIn: async ({ user, account }) => {
+      if (account?.provider == "google") {
+        const { email, name, id } = user;
+        console.log("google auth id is", id);
+        await connectDB();
+        const isUserExist = await User.findOne({ email });
+        if (!isUserExist) {
+          await User.create({
+            email,
+            name,
+            authProviderId: id,
+            password: "xyz",
+          });
+          return true;
+        } else {
+          return true;
+        }
+      }
+      if (account?.provider == "github") {
+        const { email, name, id } = user;
+        console.log("github auth id is", id);
+        await connectDB();
+        const isUserExist = await User.findOne({ email });
+        if (!isUserExist) {
+          await User.create({
+            email,
+            name,
+            authProviderId: id,
+            password: "xyz",
+          });
+          return true;
+        } else {
+          return true;
+        }
+      } else if (account?.provider == "credentials") {
+        return true;
+      }
+    },
+  },
 });

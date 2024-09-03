@@ -1,5 +1,6 @@
 import { signoutUser } from "@/actions/user";
 import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import {
   Table,
   TableHeader,
@@ -18,6 +19,7 @@ const recentSignups = [
 const HomePage = async () => {
   const session = await auth();
   console.log("session is", session);
+  if (!session) redirect("/login");
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="container mx-auto">
