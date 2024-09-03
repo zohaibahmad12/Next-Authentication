@@ -1,4 +1,5 @@
 import { signoutUser } from "@/actions/user";
+import { auth } from "@/auth";
 import {
   Table,
   TableHeader,
@@ -14,7 +15,9 @@ const recentSignups = [
   { name: "Bob Brown", email: "bob.brown@example.com" },
 ];
 
-const HomePage = () => {
+const HomePage = async () => {
+  const session = await auth();
+  console.log("session is", session);
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="container mx-auto">

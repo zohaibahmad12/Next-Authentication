@@ -27,13 +27,11 @@ export const loginUser = async (formData) => {
 };
 
 export const githubLogin = async () => {
-  await signIn("github", { redirect: false });
-  redirect("/");
+  await signIn("github", { redirectTo: "/" });
 };
 
 export const googleLogin = async () => {
-  await signIn("google", { redirect: false });
-  redirect("/");
+  await signIn("google", { redirectTo: "/" });
 };
 
 export const signoutUser = async () => {
