@@ -44,8 +44,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/login",
   },
 
-  // Optional: We give it becasue we want a custom logic for our github and google signin
   callbacks: {
+    authorized: async ({ auth }) => {
+      console.log("auth is", auth);
+      // On every user request first this method will executed for middleware to protect routes
+      return !!auth;
+    },
+
+    // Optional: We give it becasue we want a custom logic for our github and google signin
     signIn: async ({ user, account }) => {
       if (account?.provider == "google") {
         const { email, name, id } = user;

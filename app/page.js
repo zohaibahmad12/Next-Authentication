@@ -17,9 +17,9 @@ const recentSignups = [
 ];
 
 const HomePage = async () => {
-  const session = await auth();
-  console.log("session is", session);
-  if (!session) redirect("/login");
+  // const session = await auth();
+  // console.log("session is", session);
+  // if (!session) redirect("/login");
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="container mx-auto">
